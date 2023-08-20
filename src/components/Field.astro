@@ -1,0 +1,9 @@
+---
+const {name, label, type} = Astro.props;
+---
+
+<div class="text-left">
+    <label class="block text-xl m-2" for={name}>{label}</label>
+    <input class="block outline-4 outline-orange-400 p-2 rounded-lg border-b-4 border-orange-400 focus:border-amber-400"
+           type={type ?? "text"} id={name} name={name} required/>
+</div>
