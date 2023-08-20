@@ -1,9 +1,8 @@
 ---
 import writingImg from "../assets/writing.jpg";
 import Layout from "../layout/Layout.astro";
-import Slider from "../components/slider/Slider.astro";
-import {Counter} from "../components/Counter.jsx";
-
+import TestimonialSlider from "../components/Slider";
+import Counter from "../components/Counter.jsx";
 ---
 
 <Layout>
@@ -39,7 +38,7 @@ import {Counter} from "../components/Counter.jsx";
             Testimonials
         </h2>
         <div class="md:p-10">
-            <Slider/>
+            <TestimonialSlider client:only="react"/>
         </div>
     </div>
     <div class="p-14 text-center bg-stone-100">
