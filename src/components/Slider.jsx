@@ -2,11 +2,11 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import {useEffect, useState} from "react";
 
 const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 3,
     arrows: false,
     slidesToScroll: 1,
     autoplay: true,
@@ -15,9 +15,23 @@ const settings = {
 };
 
 export default function TestimonialSlider() {
+    const [show, setShow] = useState(3);
+
+    useEffect(() => {
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            setShow(1);
+        }
+
+        window.addEventListener("resize", () => {
+            if (window.matchMedia("(max-width: 768px)").matches) {
+                setShow(1);
+            }
+        })
+    }, [])
+
     return (
         <div className="h-full w-full cursor-ew-resize space-x-3.5">
-            <Slider {...settings}
+            <Slider slidesToShow={show} {...settings}
             >
                 {[1, 2, 3, 4, 5].map((i) =>
                     <div key={i} className="outline-none">
