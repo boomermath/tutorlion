@@ -1,0 +1,21 @@
+---
+import CollapsedText from "./CollapsedText.jsx";
+interface TutorProps {
+    name: string
+    image: object,
+    description: string
+}
+
+const {tutor} = Astro.props as TutorProps;
+---
+
+<div id={`bio-${tutor.name}`}
+     class="flex flex-col md:flex-row p-4 m-3 md:m-6 rounded-xl grayscale transition-all duration-500 shadow-lg items-center">
+    <img class="w-[200px] m-2 rounded-xl" src={tutor.image} width="800" height="1000"
+         alt="profile image"/>
+    <div class="m-4">
+        <p class="text-center md:text-left text-4xl md:text-5xl font-montserrat font-extrabold mb-4">{tutor.name}</p>
+        <p class="text-lg hidden md:block">{tutor.description}</p>
+        <CollapsedText description={tutor.description} client:media="(max-width: 768px)"/>
+    </div>
+</div>

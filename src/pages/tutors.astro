@@ -1,7 +1,8 @@
 ---
-import {Image} from "@astrojs/image/components";
+import {GoogleFontsOptimizer as Fonts} from "astro-google-fonts-optimizer";
 import Layout from "../layout/Layout.astro";
 import {tutors} from "../components/people/tutors";
+import Tutor from "../components/Tutor.astro";
 
 const images = Object.keys(await import.meta.glob("/public/people/*"));
 
@@ -15,6 +16,9 @@ const tutorList = tutors.map(tutor => {
 
 
 <Layout>
+    <head slot="name">
+        <Fonts url="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"/>
+    </head>
     <div class="text-center p-4 md:p-12">
         <h1 class="text-6xl text-orange-500 font-poppins font-extrabold">Our tutors</h1>
         <p class="p-10">
@@ -25,19 +29,33 @@ const tutorList = tutors.map(tutor => {
             abilities.
         </p>
         <a class="rounded-md bg-orange-600 hover:bg-amber-300 text-white p-3" href="#">Become a tutor</a>
-        <div class="m-10">
-            {
-                tutorList.map(tutor =>
-                        <div class="flex flex-col md:flex-row p-4 m-2 md:m-4 text-left border-2 border-black rounded-md items-center">
-                            <img class="w-[200px] m-2" src={tutor.image} width="800" height="1000"
-                                 alt="profile image"/>
-                            <div class="m-4">
-                                <p class="text-4xl md:text-5xl font-poppins font-extrabold mb-4">{tutor.name}</p>
-                                <p class="text-lg">{tutor.description}</p>
-                            </div>
-                        </div>
-                )
-                }
-                </div>
-                </div>
-                </Layout>
+    </div>
+    <div class="m-10">
+        {
+            tutorList.map(tutor =>
+                    <Tutor tutor={tutor}/>
+            )
+        }
+    </div>
+</Layout>
+
+<script>
+    const bioObserver = new IntersectionObserver((entries) => {
+        const smallScreen = window.matchMedia("(max-width: 768px)").matches;
+
+        entries.forEach(entry => {
+            const classes = "grayscale-0 md:-translate-x-5".split(" ")
+
+            entry.isIntersecting ?
+                entry.target.classList.add(...classes) : entry.target.classList.remove(...classes);
+
+            if (smallScreen) {
+                const clickMore = entry.target.querySelector("#description");
+
+                entry.isIntersecting ? clickMore.classList.remove("hidden") : clickMore.classList.add("hidden");
+            }
+        });
+    }, {rootMargin: "-50% 0% -50% 0%", threshold: 0});
+
+    document.querySelectorAll("[id^='bio']").forEach(v => bioObserver.observe(v));
+</script>

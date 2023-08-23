@@ -14,7 +14,8 @@ import Footer from "../components/Footer.astro";
     <title>TutorLion</title>
     <Fonts url="https://fonts.googleapis.com/css2?family=Nunito&display=swap"/>
     <Fonts url="https://fonts.googleapis.com/css2?family=Poppins&display=swap"/>
-    <SEO/>
+    <SEO />
+    <slot name="head" />
 </head>
 <body class="flex flex-col min-h-screen bg-stone-100 font-nunito">
 <Navbar />

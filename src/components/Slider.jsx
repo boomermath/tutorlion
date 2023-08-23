@@ -18,14 +18,18 @@ export default function TestimonialSlider() {
     const [show, setShow] = useState(3);
 
     useEffect(() => {
-        if (window.matchMedia("(max-width: 768px)").matches) {
-            setShow(1);
-        }
-
-        window.addEventListener("resize", () => {
+        const setCarousel = () => {
             if (window.matchMedia("(max-width: 768px)").matches) {
                 setShow(1);
+            } else {
+                setShow(3);
             }
+        }
+
+       setCarousel();
+
+        window.addEventListener("resize", () => {
+            setCarousel();
         })
     }, [])
 

@@ -4,9 +4,15 @@ module.exports = {
 	theme: {
 		fontFamily: {
 			"nunito": "\"Nunito\", sans-serif",
-			"poppins": "\"Poppins\", sans-serif"
+			"poppins": "\"Poppins\", sans-serif",
+			"montserrat": "\"Montserrat\", sans-serif"
 		},
-		extend: {},
+
+		extend: {
+			colors: {
+				"brown": "#ba3b0a"
+			},
+		},
 	},
 	plugins: [],
 }

@@ -1,6 +1,7 @@
 ---
 import {MobileNav} from "./MobileNav.jsx";
-
+import {Image} from "@astrojs/image/components";
+import faviconClear from "../../assets/favicon-clear.png";
 const links = [
     {name: "Home", href: "/"},
     {name: "Tutors", href: "/tutors"},
@@ -9,7 +10,7 @@ const links = [
 ]
 ---
 <div class="flex items-center top-0 p-2 overflow-hidden">
-    <div class="p-3">
+    <div class="p-3 inline-flex space-x-3.5 justify-center items-center">
         <a href="/" class="text-4xl font-extrabold poppins">TutorLion</a>
     </div>
     <nav class="ml-auto space-x-3.5 p-6 hidden md:block">
