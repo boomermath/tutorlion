@@ -1,12 +1,13 @@
 ---
 import Layout from "../layout/Layout.astro";
-import {team} from "../components/people/team";
+import {teams} from "../resources/team.json";
+import TeamMember from "../components/TeamMember.astro";
 
 const images = Object.keys(await import.meta.glob("/public/people/*"));
-const teamList = team.map(t => {
+const teamList = teams.map(t => {
     const fileName = t.name.toLowerCase().split(" ").join("-");
     const imageName = images.find(i => i.includes(fileName));
-    t.image = imageName?.slice(7, imageName.length);
+    t.image = imageName?.slice(7, imageName.length) ?? "/people/ankit-rao.jpeg";
     return t;
 })
 ---
@@ -35,20 +36,12 @@ const teamList = team.map(t => {
                 reach their full potential.
             </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="grid grid-cols-2 gap-6">
             {
                 teamList.map(t =>
-                        <div class="flex flex-col md:flex-row items-center m-6 border-2 border-black rounded-xl">
-                            <div class="m-2">
-                                <img class="w-[300px]" src={t.image}/>
-                            </div>
-                            <div class="m-4">
-                                <p class="text-4xl md:text-5xl font-poppins font-extrabold mb-4">{t.name}</p>
-                                <p class="text-2xl md:text-3xl font-poppins font-semibold italic mb-4">{t.position}</p>
-                            </div>
-                        </div>
+                        <TeamMember {...t}/>
                 )
-                }
-                </div>
-                </div>
-                </Layout>
+            }
+        </div>
+    </div>
+</Layout>

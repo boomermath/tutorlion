@@ -1,7 +1,8 @@
 ---
 import {GoogleFontsOptimizer as Fonts} from "astro-google-fonts-optimizer";
+
 import Layout from "../layout/Layout.astro";
-import {tutors} from "../components/people/tutors";
+import {tutors} from "../resources/tutors.json";
 import Tutor from "../components/Tutor.astro";
 
 const images = Object.keys(await import.meta.glob("/public/people/*"));
@@ -9,7 +10,7 @@ const images = Object.keys(await import.meta.glob("/public/people/*"));
 const tutorList = tutors.map(tutor => {
     const fileName = tutor.name.toLowerCase().split(" ").join("-");
     const imageName = images.find(i => i.includes(fileName));
-    tutor.image = imageName?.slice(7, imageName.length);
+    tutor.image = imageName?.slice(7, imageName.length) ?? "/people/ankit-rao.jpeg";
     return tutor;
 })
 ---
@@ -30,10 +31,10 @@ const tutorList = tutors.map(tutor => {
         </p>
         <a class="rounded-md bg-orange-600 hover:bg-amber-300 text-white p-3" href="#">Become a tutor</a>
     </div>
-    <div class="m-10">
+    <div>
         {
             tutorList.map(tutor =>
-                    <Tutor tutor={tutor}/>
+                    <Tutor {...tutor}/>
             )
         }
     </div>
@@ -44,7 +45,7 @@ const tutorList = tutors.map(tutor => {
         const smallScreen = window.matchMedia("(max-width: 768px)").matches;
 
         entries.forEach(entry => {
-            const classes = "grayscale-0 md:-translate-x-5".split(" ")
+            const classes = "grayscale-0 md:-translate-y-5".split(" ")
 
             entry.isIntersecting ?
                 entry.target.classList.add(...classes) : entry.target.classList.remove(...classes);
@@ -57,5 +58,5 @@ const tutorList = tutors.map(tutor => {
         });
     }, {rootMargin: "-50% 0% -50% 0%", threshold: 0});
 
-    document.querySelectorAll("[id^='bio']").forEach(v => bioObserver.observe(v));
+    document.querySelectorAll("#bio").forEach(v => bioObserver.observe(v));
 </script>

@@ -1,0 +1,30 @@
+{
+  "testimonials": [
+    {
+      "text": "This is Mr. Mitchell. Braylon is on fire today. He is answering questions like crazy. Great day in math today.",
+      "person": "Grade 4 parent",
+      "subject": "Math"
+    },
+    {
+      "text": "Aarav has been my son's tutor and advisor since he started in December. My son relies on Aarav's advice on what/how to do his assignments quickly and correctly and Aarav also gives my son advice on what classes to take for high school.",
+      "person": "Grade 8 parent",
+      "subject": "English"
+    },
+    {
+      "text": "Thanks Nikhil for helping my 9th grader with all her subjects and homework. It's a big support and always a pleasure.",
+      "person": "Grade 9 Parent",
+      "subject": "Math and AP Psychology"
+    },
+    {
+      "text": "Perfect! Arjun helped my 10th grade daughter with math. He went over a lot of broad topics ranging from 7th to 10th grade math. He helped her to prepare for her tests throughout 10th grade. He knew every topic and we can rely on him anytime! My daughter got 95 on final with the help of Arjun!",
+      "person": "Mikako, Grade 10 Parent",
+      "subject": "Math - Honors Algebra 2"
+    },
+    {
+      "text": "Rishi has been an amazing teacher for Harish. I have seen him teaching Harish and I can tell his way of teaching is purely extraordinary. Even my son has told me he really enjoys learning with Rishi and has learned many new things and really understands the topics.",
+      "person": "Suganthi, Grade 7 Parent",
+      "subject": "Math"
+    }
+  ]
+}
+

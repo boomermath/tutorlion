@@ -9,14 +9,15 @@ const links = [
     {name: "Contact", href: "/contact"},
 ]
 ---
-<div class="flex items-center top-0 p-2 overflow-hidden">
-    <div class="p-3 inline-flex space-x-3.5 justify-center items-center">
-        <a href="/" class="text-4xl font-extrabold poppins">TutorLion</a>
+<div class="backdrop-blur-3xl bg-stone-100 sticky z-50 flex items-center divide-x-2 divide-black top-0 p-2 overflow-hidden">
+    <div class="p-3 inline-flex space-x-3.5 justify-center items-center mr-2">
+        <Image class="invert" src={faviconClear} alt="logo" width="64" height="64" />
+        <a href="/" class="text-4xl font-extrabold poppins text-brown">TutorLion</a>
     </div>
-    <nav class="ml-auto space-x-3.5 p-6 hidden md:block">
+    <nav class="space-x-3.5 p-6 hidden md:block">
         {links.map(
             link =>
-                    <a class="text-black hover:underline" href={link.href}>{link.name}</a>)
+                    <a class="hover:underline" href={link.href}>{link.name}</a>)
         }
     </nav>
 </div>
@@ -26,7 +27,7 @@ const links = [
         links.map(
             link =>
                     <div class="p-2">
-                        <a class="text-black text-xl active:underline" href={link.href}>{link.name}</a>
+                        <a class="text-xl active:underline" href={link.href}>{link.name}</a>
                     </div>
         )
     }
