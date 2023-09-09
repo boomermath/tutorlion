@@ -1,35 +1,39 @@
 ---
-import {GoogleFontsOptimizer as Fonts} from "astro-google-fonts-optimizer";
-
 import Layout from "../layout/Layout.astro";
 import {tutors} from "../resources/tutors.json";
 import Tutor from "../components/Tutor.astro";
+
+import {forms} from "../resources/forms.json";
 
 const images = Object.keys(await import.meta.glob("/public/people/*"));
 
 const tutorList = tutors.map(tutor => {
     const fileName = tutor.name.toLowerCase().split(" ").join("-");
     const imageName = images.find(i => i.includes(fileName));
-    tutor.image = imageName?.slice(7, imageName.length) ?? "/people/ankit-rao.jpeg";
+    tutor.image = imageName?.slice(7, imageName.length) ?? "/people/placeholder.webp";
     return tutor;
 })
 ---
 
 
-<Layout>
-    <head slot="name">
-        <Fonts url="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"/>
-    </head>
+<Layout
+        title="Our Tutors"
+        description="Meet the Tutor Lions: a group of dedicated, knowledgeable professionals who are committed to helping students succeed."
+>
     <div class="text-center p-4 md:p-12">
-        <h1 class="text-6xl text-orange-500 font-poppins font-extrabold">Our tutors</h1>
-        <p class="p-10">
-            Meet the Tutor Lions: a group of dedicated, knowledgeable professionals who are committed to helping
-            students succeed.
-            With a wide range of expertise and a passion for education, our tutors are ready to support learners of all
-            ages and
-            abilities.
-        </p>
-        <a class="rounded-md bg-orange-600 hover:bg-amber-300 text-white p-3" href="#">Become a tutor</a>
+        <h1 class="text-6xl text-orange-500 font-poppins font-extrabold m-10">Our tutors</h1>
+        <div class="p-10">
+            <p class="md:pl-48 md:pr-48">
+                Meet the Tutor Lions: a group of dedicated, knowledgeable professionals who are committed to helping
+                students succeed.
+                With a wide range of expertise and a passion for education, our tutors are ready to support learners of
+                all
+                ages and
+                abilities.
+            </p>
+        </div>
+        <a target="_blank" class="rounded-md bg-orange-600 hover:bg-amber-300 text-white p-3" href={forms.teacher}>Become
+            a tutor</a>
     </div>
     <div>
         {

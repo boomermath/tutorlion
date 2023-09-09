@@ -10,12 +10,12 @@ const {name, image, description} = Astro.props as Props;
 ---
 
 <div id="bio"
-     class="flex flex-row items-center p-4 m-3 md:m-6 rounded-xl grayscale duration-500 shadow-lg">
+     class="flex flex-col md:flex-row items-center p-4 m-6 rounded-xl grayscale duration-500 shadow-lg">
     <img class="w-[300px] m-2 rounded-2xl" src={image} width="800" height="1000"
          alt="profile image"/>
     <div class="flex flex-col m-4">
         <p class="text-4xl md:text-5xl font-montserrat font-extrabold mb-4">{name}</p>
         <p class="text-lg hidden md:block">{description}</p>
-        <CollapsedText description={description} client:media="(max-width: 768px)"/>
     </div>
+    <CollapsedText description={description} client:media="(max-width: 768px)"/>
 </div>

@@ -1,34 +1,50 @@
 ---
 import Layout from "../layout/Layout.astro";
-import Field from "../components/Field.astro";
+
+import {forms} from "../resources/forms.json";
 ---
 
 
-<Layout>
-    <div class="flex flex-col justify-center items-center text-center mt-0 m-10 p-6">
-        <h1 class="text-6xl text-orange-500 font-poppins font-extrabold m-10">Register with us today!</h1>
-        <form class="flex flex-col" method="POST">
-            <div class="block">
-                <div class="flex flex-col justify-center items-center md:flex-row md:inline-flex space-x-0 md:space-x-5">
-                    <Field name="firstname" label="First name"/>
-                    <Field name="lastname" label="Last name"/>
-                </div>
-                <div class="flex justify-center items-center">
-                    <Field name="email" type="email" label="Email"/>
-                </div>
+<Layout
+        title="Contact"
+        description="At TutorLion we want to make it easy for you to get in touch with us, fill out our form today!"
+>
+    <div class="flex flex-col justify-center items-center text-center p-6">
+        <h1 class="text-6xl text-brown font-poppins font-extrabold m-10">Register with us today!</h1>
+        <div class="flex flex-col w-full h-screen m-8 text-center">
+            <div id="loading-panel" class="">
+                <h3 class="text-brown font-semibold text-4xl">Loading<span id="dots"></span></h3>
             </div>
-            <div class="m-10">
-                <label class="block text-2xl" for="content">Message</label> <br/>
-                <textarea class="h-[200px] outline-4 outline-orange-400 md:w-[800px] p-2 resize-y border-box z-50"
-                          id="content" name="content"/>
-            </div>
-            <div>
-                <button class="w-1/2" type="submit">
-                    <span class="bg-orange-500 rounded-lg text-white text-xl hover:bg-yellow-400 p-4 m-2">
-                        Send
-                    </span>
-                </button>
-            </div>
-        </form>
+            <iframe id="contact-form" class="flex-1 hidden relative" src={forms.student}/>
+        </div>
     </div>
 </Layout>
+
+<script>
+    const iframe = document.getElementById("contact-form");
+    const loading = document.getElementById("loading-panel");
+    const dotsEl = document.getElementById("dots");
+
+    let dots = 0;
+
+    setInterval(() => {
+        if (dots > 2) {
+            dots = 0;
+        } else {
+            dots++;
+        }
+
+
+        let dotString = "";
+        for (let i = 0; i < dots; i++) {
+            dotString += ".";
+        }
+
+        dotsEl.textContent = dotString;
+    }, 250)
+
+    iframe.addEventListener("load", () => {
+        loading.classList.add("hidden");
+        iframe.classList.remove("hidden");
+    });
+</script>

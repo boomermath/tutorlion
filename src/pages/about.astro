@@ -7,36 +7,33 @@ const images = Object.keys(await import.meta.glob("/public/people/*"));
 const teamList = teams.map(t => {
     const fileName = t.name.toLowerCase().split(" ").join("-");
     const imageName = images.find(i => i.includes(fileName));
-    t.image = imageName?.slice(7, imageName.length) ?? "/people/ankit-rao.jpeg";
+    t.image = imageName?.slice(7, imageName.length) ?? "/people/placeholder.webp";
     return t;
 })
 ---
 
 
-<Layout>
+<Layout
+title="About Us"
+description="At TutorLion, we believe that every student has the potential to succeed. Our mission is to provide high-quality, personalized instruction to all."
+>
     <div class="p-10">
         <div class="text-center m-10">
             <h1 class="text-6xl text-orange-500 font-poppins font-extrabold">Our Team</h1>
-            <p class="m-4 whitespace-pre-line">
+            <p class="mt-4 mb-8 whitespace-pre-line">
                 At TutorLion, we believe that every student has the potential to succeed.
                 Our mission is to provide high-quality, personalized instruction to help students achieve
                 their academic goals.
 
-                Our team of experienced tutors is dedicated to providing students with the support and guidance
-                they need to excel in their classes. We offer a wide range of tutoring services, from individualized
+                We offer a wide range of tutoring services, from individualized
                 instruction to small group sessions, to help students improve their understanding of the material and
                 build confidence in their abilities.
-
-                In addition to subject-specific tutoring, we also provide support for test preparation, study skills,
-                and other areas that are essential for academic success. We work closely with students, parents, and
-                teachers to ensure that our tutoring services are tailored to the needs and goals of each individual
-                student.
 
                 We strive to create a supportive and encouraging learning environment where students can thrive and
                 reach their full potential.
             </p>
         </div>
-        <div class="grid grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {
                 teamList.map(t =>
                         <TeamMember {...t}/>

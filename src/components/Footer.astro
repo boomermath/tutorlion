@@ -14,10 +14,10 @@ const socialMediaIcons = [
 
 <footer class="flex items-center justify-between bg-brown p-4 w-full">
     <a href="/" class="text-white text-3xl font-extrabold">TutorLion</a>
-    <div class="inline-flex items-center justify-center mt-2">
+    <div class="inline-flex items-center justify-center mt-2 space-x-2">
         {
             socialMediaIcons.map(s =>
-                    <a class="inline-block relative p-1 md:p-2 hover:scale-125" target="_blank" href={s.url}>
+                    <a class="inline-block relative p-2 hover:scale-125" target="_blank" href={s.url}>
                         <Image src={s.img} alt="social media icon"/>
                     </a>
             )

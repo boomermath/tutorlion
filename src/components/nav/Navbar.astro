@@ -7,14 +7,14 @@ const links = [
     {name: "Tutors", href: "/tutors"},
     {name: "About", href: "/about"},
     {name: "Contact", href: "/contact"},
-]
+]//bg-brown
 ---
-<div class="backdrop-blur-3xl bg-stone-100 sticky z-50 flex items-center divide-x-2 divide-black top-0 p-2 overflow-hidden">
-    <div class="p-3 inline-flex space-x-3.5 justify-center items-center mr-2">
-        <Image class="invert" src={faviconClear} alt="logo" width="64" height="64" />
-        <a href="/" class="text-4xl font-extrabold poppins text-brown">TutorLion</a>
-    </div>
-    <nav class="space-x-3.5 p-6 hidden md:block">
+<div class="bg-brown md:bg-white sticky z-50 flex items-center top-0 p-1 md:shadow-lg overflow-hidden">
+    <a href="/" class="p-3 pr-6 -m-2 inline-flex space-x-2 justify-center items-center bg-brown text-white">
+        <Image src={faviconClear} alt="logo" width="72" height="72"/>
+        <div class="text-4xl font-extrabold poppins font-montserrat">TutorLion</div>
+    </a>
+    <nav class="space-x-3.5 p-6 hidden md:block ml-auto text-brown">
         {links.map(
             link =>
                     <a class="hover:underline" href={link.href}>{link.name}</a>)
