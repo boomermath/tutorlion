@@ -7,7 +7,7 @@ export function MobileNav({children}) {
     return (
         <>
             <div className="md:hidden">
-                <div onClick={() => setToggled(t => !t)} className="top-[30px] right-5 fixed scale-125 z-50 cursor-pointer">
+                <div onClick={() => setToggled(t => !t)} className="top-[30px] right-5 fixed z-50 cursor-pointer">
                     <div
                         className={`h-1 rounded-md w-8 bg-white m-1 duration-100 ${toggled ? "rotate-45 translate-y-2" : ""}`}></div>
                     <div className={`h-1 rounded-md w-8 bg-white m-1 ${toggled ? "hidden" : ""}`}></div>

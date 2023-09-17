@@ -1,18 +1,17 @@
 ---
-import {GoogleFontsOptimizer as Fonts} from "astro-google-fonts-optimizer";
-
-import writingImg from "../assets/writing.jpg";
+import bannerImg from "../assets/tutorlion-banner.jpg";
 import Layout from "../layout/Layout.astro";
 import TestimonialSlider from "../components/slider/Slider";
-import Counter from "../components/Counter.jsx";
+import Counter from "../components/Counter.jsx"; //
 ---
 
 <Layout>
-    <div style={`background-image: url('${writingImg.src}')`}
-         class="flex justify-center items-center flex-wrap md:flex-nowrap bg-fixed h-[350px] md:h-[600px]">
-        <div class="text-center mt-10">
-            <h1 class="text-7xl md:text-8xl text-orange-500 font-poppins font-extrabold">TutorLion</h1>
-            <p class="w-full md:w-full text-2xl text-white mt-4 p-2 font-montserrat rounded-sm">
+    <div style={`background-image: url('${bannerImg.src}');`}
+            class="flex justify-center items-center bg-fixed bg-contain bg-no-repeat bg-[center_top_85px] h-[350px] md:bg-cover md:h-[750px]">
+        <div class="text-center z-10">
+            <h1 class="p-3 rounded-lg text-6xl md:text-8xl text-white drop-shadow-2xl font-poppins font-extrabold">
+                TutorLion</h1>
+            <p class="w-full md:w-full text-xl md:text-2xl text-white mt-4 p-2 font-montserrat rounded-sm">
                 For students, by students
             </p>
             <div class="m-10 grid grid-cols-2 gap-3.5">
@@ -23,8 +22,8 @@ import Counter from "../components/Counter.jsx";
             </div>
         </div>
     </div>
-    <div class="p-14 text-center bg-stone-100">
-        <h2 class="text-5xl md:text-6xl m-10 text-center font-poppins font-extrabold">Our success</h2>
+    <div class="p-14 text-center">
+        <h2 class="text-5xl md:text-6xl mb-10 text-center font-poppins font-extrabold">Our success</h2>
         <div class="flex flex-col md:flex-row items-center justify-center divide-y-4 md:divide-y-0 md:divide-x-4 divide-orange-500 hover:divide-brown">
             <p class="flex-1 text-xl md:text-3xl p-10">
                 <span class="font-poppins text-7xl"><Counter client:visible number="75"/>+</span> <br/>
@@ -80,12 +79,10 @@ import Counter from "../components/Counter.jsx";
         </div>
     </div>
     <div class="p-4 md:p-12 mt-24 md:mt-0">
-        <h2 class="text-5xl md:text-6xl mb-6 text-center font-poppins font-extrabold">
+        <h2 class="text-4xl md:text-6xl mb-6 text-center font-poppins font-extrabold">
             Testimonials
         </h2>
-        <div class="md:p-10">
-            <TestimonialSlider client:only="react"/>
-        </div>
+        <TestimonialSlider client:only="react"/>
     </div>
     <div class="grid items-center justify-center p-20">
         <h2 class="text-6xl mb-12 text-center font-poppins font-extrabold">Join us!</h2>

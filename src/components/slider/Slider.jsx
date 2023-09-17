@@ -4,7 +4,6 @@ import {testimonials} from "../../resources/testimonials.json";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {useCallback, useState} from "react";
 
 
 const settings = {
@@ -13,7 +12,7 @@ const settings = {
     arrows: false,
     slidesToScroll: 1,
     slidesToShow: 3,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     speed: 700,
     responsive: [
@@ -28,6 +27,8 @@ const settings = {
     ],
     pauseOnHover: true,
     pauseOnDotsHover: true,
+    swipe: true,
+    waitForAnimate: false,
     swipeToSlide: true,
 };
 
@@ -40,7 +41,7 @@ export default function TestimonialSlider() {
                     {testimonials.map((t) =>
                         <div key={t.text} className="h-full">
                             <div
-                                className="shadow-xl bg-white rounded-md hover:-translate-y-2 duration-300 h-[400px] p-4 md:p-10 text-center flex flex-col items-center justify-center m-4">
+                                className="shadow-xl bg-white rounded-md hover:-translate-y-2 duration-300 h-[500px] p-4 md:p-10 text-center flex flex-col items-center justify-center m-4">
                                 <p className="text-md md:text-lg m-2 align-middle">
                                     "{t.text}"
                                 </p>
