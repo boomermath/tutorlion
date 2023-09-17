@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const totalMs = 2000;
+const totalMs = 1200;
 export default function Counter({number}) {
     const [num, setNum] = useState(0);
 

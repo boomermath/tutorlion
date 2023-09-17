@@ -1,12 +1,12 @@
 ---
-import {Image} from "@astrojs/image/components";
+import {Image} from "astro:assets";
 import instagram from "../assets/instagram.svg";
 import facebook from "../assets/facebook.svg";
 import linkedin from "../assets/linkedin.svg";
 
 const socialMediaIcons = [
     {img: instagram, url: "https://www.instagram.com/tutorlionofficial"},
-    {img: facebook, url: "https://www.facebook.com/profile.php?id=100088714309823&paipv=0&eav=AfYMrETPOWsSCJFNR6hQGxntXQ9IE7Po_Lepi530N9h39SS8_0VjIPTYTEk84tSiTnk&_rdr"},
+    {img: facebook, url: "https://www.facebook.com/profile.php?id=100088714309823"},
     {img: linkedin, url: "https://www.linkedin.com/company/tutorlion/"}
 ];
 ---
@@ -14,7 +14,7 @@ const socialMediaIcons = [
 
 <footer class="flex items-center justify-between bg-brown p-4 w-full">
     <a href="/" class="text-white text-3xl font-extrabold">TutorLion</a>
-    <div class="inline-flex items-center justify-center mt-2 space-x-2">
+    <div class="inline-flex items-center justify-center md:space-x-2">
         {
             socialMediaIcons.map(s =>
                     <a class="inline-block relative p-2 hover:scale-125" target="_blank" href={s.url}>

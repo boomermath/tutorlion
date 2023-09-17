@@ -41,7 +41,7 @@ export default function TestimonialSlider() {
                     {testimonials.map((t) =>
                         <div key={t.text} className="h-full">
                             <div
-                                className="shadow-xl bg-white rounded-md hover:-translate-y-2 duration-300 h-[500px] p-4 md:p-10 text-center flex flex-col items-center justify-center m-4">
+                                className="shadow-xl bg-white rounded-md hover:-translate-y-2 duration-300 h-[400px] md:h-[500px] p-4 md:p-10 text-center flex flex-col items-center justify-center m-4">
                                 <p className="text-md md:text-lg m-2 align-middle">
                                     "{t.text}"
                                 </p>
